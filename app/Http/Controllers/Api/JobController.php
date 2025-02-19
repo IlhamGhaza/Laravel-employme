@@ -1,100 +1,137 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\JobResource;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
+use App\Http\Resources\JobResource;
+use App\Http\Resources\JobCollection;
 use Illuminate\Support\Facades\Validator;
-
 
 class JobController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of jobs with search and pagination.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
-        $jobs = Job::where('is_deleted', false)->with('company')->get();
-        return response()->json([
-            'message' => 'Jobs retrieved successfully.',
-            'data' => JobResource::collection($jobs)
-        ]);
+        $query = Job::with('company')->where('is_active', true);
+
+        // Search functionality
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $query->where(function (Builder $query) use ($searchTerm) {
+                $query->where('title', 'like', "%{$searchTerm}%")
+                    ->orWhere('description', 'like', "%{$searchTerm}%")
+                    ->orWhereHas('company', function (Builder $q) use ($searchTerm) {
+                        $q->where('name', 'like', "%{$searchTerm}%");
+                    });
+            });
+        }
+
+        // Filter by category
+        if ($request->has('category')) {
+            $query->where('category', $request->category);
+        }
+
+        // Filter by job type
+        if ($request->has('job_type')) {
+            $query->where('job_type', $request->job_type);
+        }
+
+        // Filter by work arrangement
+        if ($request->has('work_arrangement')) {
+            $query->where('work_arrangement', $request->work_arrangement);
+        }
+
+        // Filter by location
+        if ($request->has('location')) {
+            $query->where('location', 'like', "%{$request->location}%");
+        }
+
+        // Filter by salary range
+        if ($request->has('min_salary')) {
+            $query->where('salary_min', '>=', $request->min_salary);
+        }
+
+        if ($request->has('max_salary')) {
+            $query->where('salary_max', '<=', $request->max_salary);
+        }
+
+        // Sort
+        $sortField = $request->input('sort_by', 'created_at');
+        $sortDirection = $request->input('sort_direction', 'desc');
+        $allowedSortFields = ['title', 'created_at', 'salary_min', 'salary_max'];
+
+        if (in_array($sortField, $allowedSortFields)) {
+            $query->orderBy($sortField, $sortDirection === 'asc' ? 'asc' : 'desc');
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        // Pagination
+        $perPage = $request->input('per_page', 10);
+        $jobs = $query->paginate($perPage);
+
+        return new JobCollection($jobs);
     }
 
+    /**
+     * Display the specified job.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-        $job = Job::with('company')->find($id);
-        if (!$job || $job->is_deleted) {
-            return response()->json([
-                'message' => 'Job not found or deleted.'
-            ], 404);
+        $job = Job::with(['company'])->findOrFail($id);
+
+        if (!$job->is_active) {
+            return response()->json(['message' => 'This job is no longer active'], 404);
         }
 
-        return response()->json([
-            'message' => 'Job details retrieved successfully.',
-            'data' => new JobResource($job)
-        ]);
+        return new JobResource($job);
     }
 
-    public function store(Request $request)
+    /**
+     * Get related jobs based on category
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function relatedJobs($id)
     {
-        $validator = Validator::make($request->all(), [
-            'company_id' => 'required|exists:companies,id',
-            'title' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'category' => 'required|string',
-            'salary_min' => 'nullable|numeric',
-            'salary_max' => 'nullable|numeric',
-            'description' => 'required|string',
-            'requirements' => 'required|string',
-            'responsibilities' => 'nullable|string',
-            'benefits' => 'nullable|string',
-        ]);
+        $job = Job::findOrFail($id);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'message' => 'Validation error.',
-                'errors' => $validator->errors()
-            ], 400);
-        }
+        $related = Job::where('category', $job->category)
+            ->where('id', '!=', $id)
+            ->where('is_active', true)
+            ->with('company')
+            ->limit(4)
+            ->get();
 
-        $job = Job::create($request->all());
-
-        return response()->json([
-            'message' => 'Job created successfully.',
-            'data' => new JobResource($job)
-        ], 201);
+        return JobResource::collection($related);
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Get job categories with count
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function categories()
     {
-        $job = Job::find($id);
-        if (!$job || $job->is_deleted) {
-            return response()->json([
-                'message' => 'Job not found or deleted.'
-            ], 404);
-        }
+        $categories = Job::where('is_active', true)
+            ->select('category')
+            ->selectRaw('count(*) as job_count')
+            ->groupBy('category')
+            ->orderBy('job_count', 'desc')
+            ->get();
 
-        $job->update($request->all());
-
-        return response()->json([
-            'message' => 'Job updated successfully.',
-            'data' => new JobResource($job)
-        ]);
-    }
-
-    public function destroy($id)
-    {
-        $job = Job::find($id);
-        if (!$job || $job->is_deleted) {
-            return response()->json([
-                'message' => 'Job not found or already deleted.'
-            ], 404);
-        }
-
-        $job->delete();
-
-        return response()->json([
-            'message' => 'Job deleted successfully.'
-        ]);
+        return response()->json(['data' => $categories]);
     }
 }
