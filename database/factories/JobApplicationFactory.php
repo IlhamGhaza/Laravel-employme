@@ -17,7 +17,10 @@ class JobApplicationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'job_id' => \App\Models\Job::factory(),
+            'user_id' => \App\Models\User::factory(),
+            'cover_letter' => $this->faker->paragraph(),
+            'status' => $this->faker->randomElement(['applied', 'reviewed', 'shortlisted', 'interviewed', 'offered', 'rejected', 'accepted', 'withdrawn']),
         ];
     }
 }

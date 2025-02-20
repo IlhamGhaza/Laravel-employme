@@ -18,6 +18,13 @@ class CompanyFactory extends Factory
     {
         return [
             //
+            'name' => fake()->company(),
+            'logo_path' => fake()->imageUrl(),
+            'website' => fake()->url(),
+            'description' => fake()->text(),
+            'industry' => fake()->word(),
+            'location' => fake()->city(),
+            'founded_year' => fake()->year(),
         ];
     }
 }

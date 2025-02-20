@@ -18,6 +18,16 @@ class UserExperienceFactory extends Factory
     {
         return [
             //
+            'user_id' => \App\Models\User::factory(
+                // fn() => random_int(2, 7)
+            ),
+            'company_name' => $this->faker->company(),
+            'title' => $this->faker->jobTitle(),
+            'location' => $this->faker->city(),
+            'start_date' => $this->faker->date(),
+            'end_date' => $this->faker->optional()->date(),
+            'is_current' => $this->faker->boolean(),
+            'description' => $this->faker->paragraph(),
         ];
     }
 }
