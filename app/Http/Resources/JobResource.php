@@ -21,7 +21,7 @@ class JobResource extends JsonResource
                 'id' => $this->company->id,
                 'name' => $this->company->name,
                 'logo_path' => $this->company->logo_path
-                    ? asset('storage/' . $this->company->logo_path)
+                    ? $this->company->logo_path
                     : null,
                 'industry' => $this->company->industry,
                 'location' => $this->company->location,
