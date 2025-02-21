@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,13 @@ Route::get('job-categories', [\App\Http\Controllers\Api\JobController::class, 'c
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
     // User authentication
-    // Route::get('auth/me', [UserController::class, 'me']);
+    Route::get('me', [UserController::class, 'me']);
     // Route::post('auth/logout', [UserController::class, 'logout']);
     // Route::post('auth/change-password', [UserController::class, 'changePassword']);
     // Route::post('auth/deactivate', [UserController::class, 'deactivate']);
+    //get login
+    Route::get('login', [\App\Http\Controllers\Api\AuthController::class, 'login'])->name('login');
+
     //logout
     Route::post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
 

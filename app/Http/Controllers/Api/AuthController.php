@@ -23,6 +23,7 @@ class AuthController extends Controller
                 'name' => $validatedData['name'],
                 'email' => $validatedData['email'],
                 'password' => Hash::make($validatedData['password']),
+                'role' => 'user'
             ]);
 
             return response()->json([
@@ -33,22 +34,19 @@ class AuthController extends Controller
                         'id' => $user->id,
                         'name' => $user->name,
                         'email' => $user->email,
+                        'role' => $user->role
                     ]
                 ]
             ], 201);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Validation failed',
-                'errors' => $e->errors()
-            ], 422);
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Registration failed'
+                'message' => 'Registration failed',
+                // 'error' => $e->getMessage() // Add this for debugging
             ], 500);
         }
     }
+
 
     public function login(Request $request): JsonResponse
     {

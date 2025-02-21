@@ -1,0 +1,1052 @@
+{
+	"info": {
+		"_postman_id": "c2a25812-3cac-42aa-830e-b4be8aa31deb",
+		"name": "Laravel-employme-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26123012"
+	},
+	"item": [
+		{
+			"name": "Public Routes",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ujang\",\r\n    \"email\":\"ujang@user.com\",\r\n    \"password\":\"80981@d\",\r\n    \"role\" : \"jobseeker\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ujang@user.com\",\r\n    \"password\":\"084108\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:30:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Validation failed\",\n    \"errors\": {\n        \"name\": [\n            \"The name field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ujang\",\r\n    \"email\":\"ujang@user.com\",\r\n    \"password\":\"80981@d\",\r\n    \"role\" : \"jobseeker\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:40:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"user\": {\n            \"id\": 33,\n            \"name\": \"ujang\",\n            \"email\": \"ujang@user.com\",\n            \"role\": \"user\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ilham@admin.com\",\r\n    \"password\":\"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ilham@admin.com\",\r\n    \"password\":\"12345678\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:29:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Test Ilham \",\n            \"email\": \"ilham@admin.com\"\n        },\n        \"access_token\": \"3|umpY3c46rulEFzYNsJeB91fE7dfqhF5f7WPWRQGKc712bc3d\",\n        \"token_type\": \"Bearer\"\n    }\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ilham@admin.com\",\r\n    \"password\":\"123456\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:30:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Invalid credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/jobs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jobs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/jobs",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"jobs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:42:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Dental Hygienist\",\n            \"company\": {\n                \"id\": 11,\n                \"name\": \"Bogan, Ziemann and Keebler\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00ee66?text=qui\",\n                \"industry\": \"cupiditate\",\n                \"location\": \"Jakubowskishire\"\n            },\n            \"salary\": {\n                \"min\": \"36736.00\",\n                \"max\": \"96204.00\",\n                \"formatted\": \"$36,736 - $96,204\"\n            },\n            \"category\": \"Sales\",\n            \"location\": \"Gladyceton\",\n            \"work_arrangement\": \"on-site\",\n            \"job_type\": \"full-time\",\n            \"description\": \"Laboriosam et doloribus culpa hic aut autem animi. Eius officia qui tempore sed voluptatibus. Voluptates laborum quae nesciunt aut commodi repellendus rem. Quaerat consequuntur odio accusamus pariatur qui adipisci.\\n\\nNon ex perspiciatis et exercitationem earum dolorum. A nulla minus vero eligendi voluptatem. Alias et repudiandae aliquid voluptates voluptatem.\\n\\nAut consequuntur eum non expedita quas perferendis enim. Et iure rerum quasi. Molestiae molestiae nulla et. Ut sed perspiciatis dolorem occaecati reprehenderit iste.\",\n            \"requirements\": \"Sed doloribus sint optio et. Rem aliquam tenetur quos nam.\\n\\nIusto ut consequatur omnis officiis totam. Ut nemo harum possimus natus officia. Et ut dicta recusandae officiis ut fugiat. Sint sed et consectetur.\",\n            \"responsibilities\": \"Nesciunt vel fugit pariatur ut quae qui quo ut. Quo neque occaecati natus nostrum et tempora porro. Quam rerum aliquam dolorem dolorem enim sapiente ea.\\n\\nRatione eum quibusdam quis sapiente commodi. Amet eligendi eligendi sit ut ducimus. Sequi quo illo ut amet voluptatem. Ut nesciunt velit unde quia quis eos. Harum aliquam repellat nesciunt molestiae sequi dolor.\",\n            \"benefits\": \"Placeat qui ratione et et. Sed aut saepe reprehenderit doloremque. Quis rerum est voluptates sed ut nihil architecto. Accusamus quis autem rem quis qui. Et quo quia esse libero temporibus consequatur possimus.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Correspondence Clerk\",\n            \"company\": {\n                \"id\": 12,\n                \"name\": \"Willms-Waters\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/004488?text=dolorum\",\n                \"industry\": \"nemo\",\n                \"location\": \"South Loniebury\"\n            },\n            \"salary\": {\n                \"min\": \"31072.00\",\n                \"max\": \"97930.00\",\n                \"formatted\": \"$31,072 - $97,930\"\n            },\n            \"category\": \"Finance\",\n            \"location\": \"Lake Martine\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"internship\",\n            \"description\": \"Placeat esse atque accusamus molestias. Veritatis quia modi sint neque occaecati placeat neque. Laudantium et ut ipsum ad.\\n\\nExplicabo cumque qui amet nemo odio et id provident. Qui commodi quae ea aut. Voluptatibus ipsam perferendis officiis blanditiis ab. Dolorem libero qui eius.\\n\\nEt repudiandae non dolor aut itaque deleniti beatae. Esse quae ratione ratione ut. Ut consectetur voluptatem repellendus et qui inventore.\",\n            \"requirements\": \"Dolores et aut dolorem mollitia. Veniam fuga odio mollitia rerum velit accusamus. Ea est et repellat quaerat tempore eligendi consequuntur. Alias nisi quibusdam sed ullam qui molestiae rerum.\\n\\nEt sapiente saepe veritatis cum harum. Accusamus ab numquam repellat non mollitia quam. Maiores similique quia voluptatibus aliquam. Voluptates est iure dolores vel.\",\n            \"responsibilities\": \"Aut fugiat dignissimos aut aut temporibus. Rerum explicabo eius in facere error. Quia et error deleniti non architecto.\\n\\nMolestiae pariatur officiis ut sit est assumenda reiciendis. Quibusdam nesciunt perferendis porro nesciunt corrupti. Maiores ad voluptates enim debitis eveniet. Reprehenderit cum maxime et qui voluptatum eos.\",\n            \"benefits\": \"Laboriosam sapiente est et. Reiciendis rerum modi quisquam deleniti ullam velit. Voluptate aut in dolorem eius enim qui incidunt. Incidunt quia expedita quasi reprehenderit.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Fitness Trainer\",\n            \"company\": {\n                \"id\": 13,\n                \"name\": \"Grady, Ruecker and Feeney\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00eedd?text=eos\",\n                \"industry\": \"repudiandae\",\n                \"location\": \"Whiteside\"\n            },\n            \"salary\": {\n                \"min\": \"43578.00\",\n                \"max\": \"137687.00\",\n                \"formatted\": \"$43,578 - $137,687\"\n            },\n            \"category\": \"Finance\",\n            \"location\": \"South Mac\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"contract\",\n            \"description\": \"Odit repellat sint nisi quia et dolore voluptatem. Est perferendis asperiores suscipit autem provident. Aut a enim animi magnam laborum sequi sed illo. Ullam voluptatem velit iure aliquam voluptas rerum consequuntur ullam.\\n\\nSimilique molestiae dolore excepturi et beatae illo. Laboriosam ullam consequuntur tenetur et odit laudantium ullam incidunt. Quis harum sequi veritatis ducimus quo.\\n\\nVoluptas numquam molestiae impedit minus eum dolores. Necessitatibus ratione a aut ipsa facilis laudantium praesentium qui. Aut tenetur iure cupiditate quia. Placeat consequatur deleniti suscipit.\",\n            \"requirements\": \"Iusto vel voluptatem molestiae impedit. Culpa blanditiis corporis in commodi non. Eligendi mollitia animi quo magni ducimus omnis. Sunt aut rerum et voluptas.\\n\\nSaepe unde incidunt tempora iure eaque est ut. Quod sed et fugit facere aut atque rerum. Distinctio tempora iure temporibus consequatur recusandae.\",\n            \"responsibilities\": \"Est sit reprehenderit illo. Quis laborum assumenda ut harum et autem dolorum quisquam. Animi voluptas excepturi beatae voluptatum unde eveniet. Est quia ipsum accusantium id facilis sapiente nesciunt.\\n\\nIpsa aut est quo reiciendis iusto laborum veritatis. Praesentium voluptatibus et iure occaecati eligendi.\",\n            \"benefits\": \"Labore nemo necessitatibus voluptatem rerum. Sit at recusandae delectus veniam. Voluptatum similique voluptas repellat labore earum minima vel dignissimos. Adipisci sunt eius qui est et tempora.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Extruding and Drawing Machine Operator\",\n            \"company\": {\n                \"id\": 14,\n                \"name\": \"Dibbert Ltd\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/005533?text=dolor\",\n                \"industry\": \"perspiciatis\",\n                \"location\": \"East Layla\"\n            },\n            \"salary\": {\n                \"min\": \"23349.00\",\n                \"max\": \"129022.00\",\n                \"formatted\": \"$23,349 - $129,022\"\n            },\n            \"category\": \"Technology\",\n            \"location\": \"South Myriam\",\n            \"work_arrangement\": \"on-site\",\n            \"job_type\": \"part-time\",\n            \"description\": \"Quos impedit expedita velit accusamus. Et quas temporibus quod sequi. Magnam dolore eos debitis. Ipsam iste cupiditate voluptate repellendus.\\n\\nNecessitatibus dolor molestiae qui velit maxime ut. Aut fugiat voluptatibus est iste sint iste. Itaque quia provident laudantium dolorem earum.\\n\\nVoluptatem deserunt aut illum adipisci id. Molestiae aut dolores impedit odit quod culpa.\",\n            \"requirements\": \"Esse assumenda fuga ut iusto earum. Ex adipisci deserunt labore quo sed.\\n\\nAdipisci maiores facere occaecati dolorum. Accusamus incidunt similique sed delectus ut.\",\n            \"responsibilities\": \"At facilis sunt provident aut voluptate accusamus. Sed eligendi ipsa voluptatem perferendis similique praesentium amet qui. Dolores provident ad odio occaecati ipsum natus. Eum est velit consequatur nihil nisi. Consectetur fuga quis porro est eos amet illum consequatur.\\n\\nBlanditiis quibusdam blanditiis aut velit. Necessitatibus illo placeat consequatur aut tenetur. Quia dolor maiores eos.\",\n            \"benefits\": \"Architecto praesentium dolores voluptas et illo voluptas unde. Odit vel dolore enim omnis neque itaque. Quae consequuntur tempore quidem mollitia provident ut. Est blanditiis magni non placeat ex est.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Pharmacy Technician\",\n            \"company\": {\n                \"id\": 15,\n                \"name\": \"Braun PLC\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00aa44?text=corporis\",\n                \"industry\": \"atque\",\n                \"location\": \"Adamsville\"\n            },\n            \"salary\": {\n                \"min\": \"33212.00\",\n                \"max\": \"90644.00\",\n                \"formatted\": \"$33,212 - $90,644\"\n            },\n            \"category\": \"Sales\",\n            \"location\": \"North Beaulah\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"internship\",\n            \"description\": \"Quaerat architecto dolores eveniet sint. Nemo quia consequatur quod vero. Id quis quidem harum sed cumque cum. Sunt illo alias sunt soluta.\\n\\nAut aliquid ab dolores ducimus accusantium consequatur possimus. Esse illum suscipit sunt voluptas. Dolor voluptatibus maiores beatae ullam cum.\\n\\nVoluptatem voluptatem ut quisquam quasi omnis facilis. Voluptatem accusantium enim similique autem fugit reprehenderit. Quasi ipsum sit voluptas voluptates tenetur eum. Est provident in commodi autem.\",\n            \"requirements\": \"Odio consequatur explicabo consequuntur totam error dolorem. Ipsum ratione dignissimos a tempore. Et quia laudantium non optio non similique placeat.\\n\\nTemporibus iste expedita rerum eum illum et. Dolor mollitia hic ut a dicta voluptas provident culpa. Repellat quis illo nisi qui quo est sed.\",\n            \"responsibilities\": \"Quia voluptatem ut voluptatibus et unde quia quia omnis. Repellendus et sunt facere vitae culpa eius.\\n\\nOfficia consectetur ut sed enim ea. Enim et velit libero cumque. Officia accusantium quidem nobis aut cum.\",\n            \"benefits\": \"Earum et voluptatem ut animi at. Error et reprehenderit sapiente aliquam quo est. Sequi sint enim veniam deleniti qui architecto.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 6,\n            \"title\": \"Dot Etcher\",\n            \"company\": {\n                \"id\": 16,\n                \"name\": \"Yost LLC\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/0088cc?text=in\",\n                \"industry\": \"odit\",\n                \"location\": \"South Eugene\"\n            },\n            \"salary\": {\n                \"min\": \"40225.00\",\n                \"max\": \"73062.00\",\n                \"formatted\": \"$40,225 - $73,062\"\n            },\n            \"category\": \"Finance\",\n            \"location\": \"East Candelarioberg\",\n            \"work_arrangement\": \"hybrid\",\n            \"job_type\": \"full-time\",\n            \"description\": \"Aut illum cupiditate corrupti et et quasi nulla. Repellat sapiente et ipsam. Dolor repellendus accusamus et adipisci maiores voluptatibus. Inventore error ut sit ut odit delectus.\\n\\nEnim quis voluptatem est quia praesentium. Voluptas voluptatem nostrum non et. Perferendis molestias sunt error voluptatem quibusdam quam. Numquam at quia voluptatem nisi tempora odit.\\n\\nReprehenderit magnam est dignissimos distinctio praesentium esse. Tenetur ea dicta quidem sapiente eum. Voluptatibus magni quod molestiae illo molestiae. Et quibusdam doloribus occaecati eligendi et voluptatum sunt.\",\n            \"requirements\": \"Illum et officia tempore labore consequatur et sit. Molestiae commodi sit commodi consequatur quos cum est ut. Unde est sint minima deleniti voluptatem quos numquam odio. Magnam dolore quia voluptas blanditiis et suscipit dolor.\\n\\nUt rerum quam officia fuga recusandae nostrum. Voluptas soluta ut ducimus quas eaque. Eum aut fugit rerum pariatur quas.\",\n            \"responsibilities\": \"Ut minus necessitatibus quae sit dolorum expedita. Quia voluptate cumque asperiores delectus non magni et. Rerum numquam accusamus itaque est voluptatem.\\n\\nAd est et repellendus quis sed ullam. Voluptatem eum aspernatur officia sapiente. Aut reprehenderit aut at.\",\n            \"benefits\": \"Nemo deserunt consectetur aut illum. Tempora maiores quia corporis eos aspernatur et quia error. Aut itaque exercitationem sit ad voluptas quo veniam. Asperiores dolor ut qui rerum dignissimos.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Welding Machine Setter\",\n            \"company\": {\n                \"id\": 18,\n                \"name\": \"Heller, Aufderhar and Bayer\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/007755?text=accusantium\",\n                \"industry\": \"et\",\n                \"location\": \"East Erin\"\n            },\n            \"salary\": {\n                \"min\": \"28828.00\",\n                \"max\": \"81436.00\",\n                \"formatted\": \"$28,828 - $81,436\"\n            },\n            \"category\": \"HR\",\n            \"location\": \"North Mohammadborough\",\n            \"work_arrangement\": \"on-site\",\n            \"job_type\": \"freelance\",\n            \"description\": \"Facilis sed ut rerum error cumque voluptatem sunt dignissimos. Voluptatibus delectus ullam voluptates. Dolorem qui modi doloribus aut qui totam. Culpa quisquam natus cum itaque repellendus molestiae nostrum.\\n\\nVelit ut iste veritatis est ex sit. Tempore dolore alias laudantium velit aliquam deleniti ut. Ut recusandae numquam quae sapiente facilis ad. Qui quia ut similique iure molestiae.\\n\\nOmnis provident omnis ut libero velit. Adipisci quidem et ipsum eum minus eum non. Aliquam et molestiae dolor laborum ad. Libero tenetur fuga optio modi fuga quo.\",\n            \"requirements\": \"Ratione ad et eum officia eveniet excepturi et. Dolores adipisci qui est voluptatem magni. Nulla sit voluptatem earum velit sunt eaque.\\n\\nEt voluptate consequatur autem nobis atque necessitatibus ipsum. Assumenda veritatis laboriosam aut eveniet eos recusandae nesciunt eligendi. Aut voluptas sed aut dolor.\",\n            \"responsibilities\": \"Facere minus eum voluptas occaecati soluta. Modi eveniet ipsum neque nihil voluptas voluptatem rem iste. Velit et optio sint iusto quas soluta qui. Consequatur magni ea est. Eaque praesentium omnis omnis ex.\\n\\nAutem harum aut itaque eos quas id. Nihil eum aperiam voluptas rem distinctio. Veniam delectus neque est eos quo esse dolorem.\",\n            \"benefits\": \"Maxime similique corrupti adipisci. Natus voluptatem dolorum sint temporibus dolorem. Asperiores et qui et sunt ut. Quod adipisci nesciunt non possimus dicta.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 9,\n            \"title\": \"Orthotist OR Prosthetist\",\n            \"company\": {\n                \"id\": 19,\n                \"name\": \"Cruickshank Group\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/007755?text=quos\",\n                \"industry\": \"laudantium\",\n                \"location\": \"Creminland\"\n            },\n            \"salary\": {\n                \"min\": \"49092.00\",\n                \"max\": \"136584.00\",\n                \"formatted\": \"$49,092 - $136,584\"\n            },\n            \"category\": \"Marketing\",\n            \"location\": \"South Kaden\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"contract\",\n            \"description\": \"Aliquam voluptatum provident dicta vel ipsa assumenda. Esse quaerat corporis eum voluptatem. Itaque occaecati quia eos quia.\\n\\nLaboriosam laboriosam aut aperiam quae nisi rerum voluptas. Mollitia expedita ut blanditiis cum iure quae sit ipsum. Ut nihil iure asperiores dolore rerum.\\n\\nEnim sed sint sunt non commodi. Et numquam nesciunt provident pariatur neque fuga. Saepe in nemo et enim quia harum. Quia facilis nisi iusto sequi aperiam.\",\n            \"requirements\": \"Aut ratione sint iste tempore. Consequatur natus voluptatem aut. Alias expedita excepturi sed debitis. Inventore consequuntur ducimus error harum minus qui ea.\\n\\nQuasi est expedita alias laborum modi nemo quo consequatur. Doloremque at dolor harum aut itaque in. Incidunt unde quos atque perspiciatis. Impedit incidunt totam sed libero quia architecto.\",\n            \"responsibilities\": \"Sed vel voluptatem aut ducimus. Et laborum atque deserunt consectetur et dolorem unde nesciunt. Maxime rem culpa et et neque. Quae eos totam recusandae.\\n\\nOmnis in autem ut cupiditate nulla. Sapiente voluptas cupiditate quia labore sed voluptatem voluptatem. Impedit sit soluta sunt eius voluptas.\",\n            \"benefits\": \"Blanditiis voluptatum distinctio atque a rerum vero voluptatum. Qui velit nihil earum et architecto ducimus ut. Unde est dolorem qui qui necessitatibus necessitatibus. Ut fuga enim iusto in.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 10,\n            \"title\": \"Mine Cutting Machine Operator\",\n            \"company\": {\n                \"id\": 20,\n                \"name\": \"Powlowski, Williamson and Murphy\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00cc33?text=sunt\",\n                \"industry\": \"vitae\",\n                \"location\": \"West Zackaryport\"\n            },\n            \"salary\": {\n                \"min\": \"22544.00\",\n                \"max\": \"126950.00\",\n                \"formatted\": \"$22,544 - $126,950\"\n            },\n            \"category\": \"Finance\",\n            \"location\": \"New Andreaneberg\",\n            \"work_arrangement\": \"hybrid\",\n            \"job_type\": \"internship\",\n            \"description\": \"Quo quisquam facilis ut enim natus. Voluptas soluta nobis est id nesciunt. Temporibus ullam occaecati mollitia vero.\\n\\nRerum et nesciunt exercitationem tempora deserunt facere. Voluptas qui porro architecto eum odio aspernatur itaque nisi. Nobis consequatur ut qui. Qui non voluptatem vero animi id.\\n\\nEt rerum impedit quo velit molestiae. Magnam omnis eos voluptas aut. Aut nihil minus fugiat praesentium nulla sunt quaerat iste. Ducimus vitae cumque aut atque aperiam cupiditate quae.\",\n            \"requirements\": \"Et dolorem sed molestiae quos earum. Facere aspernatur esse consequatur aperiam atque vitae. Ipsum perspiciatis incidunt ab hic non sunt rem sunt.\\n\\nAliquam magni et tempore totam repellat molestiae voluptates. A dolorem incidunt ut a fugiat expedita. Neque mollitia omnis ad laborum aut.\",\n            \"responsibilities\": \"Dolorem quae similique hic reiciendis. Non ut iure consequatur. Praesentium consequuntur voluptatem perspiciatis unde assumenda veniam.\\n\\nAut voluptatibus ipsum sapiente facere id. Enim accusamus voluptatibus odit aut quia occaecati consequatur. Impedit nobis voluptatem fugit eos architecto distinctio. A perspiciatis natus incidunt voluptatem praesentium facilis.\",\n            \"benefits\": \"Commodi laboriosam illo rerum et. Ex ratione voluptatibus neque est et amet. Vel voluptatum eum tenetur porro.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 11,\n            \"title\": \"Police Detective\",\n            \"company\": {\n                \"id\": 21,\n                \"name\": \"Bartell-Hartmann\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/009944?text=consequuntur\",\n                \"industry\": \"est\",\n                \"location\": \"Kilbackport\"\n            },\n            \"salary\": {\n                \"min\": \"44682.00\",\n                \"max\": \"143279.00\",\n                \"formatted\": \"$44,682 - $143,279\"\n            },\n            \"category\": \"Marketing\",\n            \"location\": \"Alecside\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"freelance\",\n            \"description\": \"Et enim ducimus voluptas non optio. Sed molestiae deleniti quo quis qui consectetur. Maiores assumenda nisi voluptatem minima aut maiores.\\n\\nQuis sed eum molestiae eveniet excepturi earum. Voluptate ut fuga sit consequatur ad. Fugiat hic atque ad neque.\\n\\nItaque ut adipisci nemo consequatur atque ratione cupiditate officiis. Quia magnam ut consequatur magnam exercitationem voluptatum qui. Quibusdam soluta dolores ut unde tenetur ullam ex.\",\n            \"requirements\": \"Voluptate cupiditate qui tempora quia natus. Impedit est voluptatibus quia id. Earum ea vel optio.\\n\\nEst corporis eaque voluptatem earum distinctio ullam molestiae. Esse expedita veritatis officiis. Adipisci et autem tempora voluptatem ea accusantium ullam.\",\n            \"responsibilities\": \"Quis ratione esse optio atque. Aspernatur magni molestias dolores omnis beatae. Similique odio dolorem dignissimos.\\n\\nAt occaecati eveniet nemo dolor dolor vel rerum. Qui dicta aut ut beatae ut enim.\",\n            \"benefits\": \"Laudantium enim iusto et. Aut minima quia ut consectetur dicta explicabo. Optio amet et quo perspiciatis. Possimus et quos pariatur.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"2 minutes ago\",\n            \"expires_in_days\": null\n        }\n    ],\n    \"pagination\": {\n        \"total\": 21,\n        \"count\": 10,\n        \"per_page\": 10,\n        \"current_page\": 1,\n        \"total_pages\": 3,\n        \"links\": {\n            \"next\": \"http://localhost:8000/api/jobs?page=2\",\n            \"prev\": null,\n            \"first\": \"http://localhost:8000/api/jobs?page=1\",\n            \"last\": \"http://localhost:8000/api/jobs?page=3\"\n        }\n    },\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/jobs?page=1\",\n        \"last\": \"http://localhost:8000/api/jobs?page=3\",\n        \"prev\": null,\n        \"next\": \"http://localhost:8000/api/jobs?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 3,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/jobs?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://localhost:8000/api/jobs?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/jobs?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/jobs?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/jobs\",\n        \"per_page\": 10,\n        \"to\": 10,\n        \"total\": 21\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Job Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/jobs/{{job_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"{{job_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/jobs/{{job_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"jobs",
+										"{{job_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:42:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Dental Hygienist\",\n        \"company\": {\n            \"id\": 11,\n            \"name\": \"Bogan, Ziemann and Keebler\",\n            \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00ee66?text=qui\",\n            \"industry\": \"cupiditate\",\n            \"location\": \"Jakubowskishire\"\n        },\n        \"salary\": {\n            \"min\": \"36736.00\",\n            \"max\": \"96204.00\",\n            \"formatted\": \"$36,736 - $96,204\"\n        },\n        \"category\": \"Sales\",\n        \"location\": \"Gladyceton\",\n        \"work_arrangement\": \"on-site\",\n        \"job_type\": \"full-time\",\n        \"description\": \"Laboriosam et doloribus culpa hic aut autem animi. Eius officia qui tempore sed voluptatibus. Voluptates laborum quae nesciunt aut commodi repellendus rem. Quaerat consequuntur odio accusamus pariatur qui adipisci.\\n\\nNon ex perspiciatis et exercitationem earum dolorum. A nulla minus vero eligendi voluptatem. Alias et repudiandae aliquid voluptates voluptatem.\\n\\nAut consequuntur eum non expedita quas perferendis enim. Et iure rerum quasi. Molestiae molestiae nulla et. Ut sed perspiciatis dolorem occaecati reprehenderit iste.\",\n        \"requirements\": \"Sed doloribus sint optio et. Rem aliquam tenetur quos nam.\\n\\nIusto ut consequatur omnis officiis totam. Ut nemo harum possimus natus officia. Et ut dicta recusandae officiis ut fugiat. Sint sed et consectetur.\",\n        \"responsibilities\": \"Nesciunt vel fugit pariatur ut quae qui quo ut. Quo neque occaecati natus nostrum et tempora porro. Quam rerum aliquam dolorem dolorem enim sapiente ea.\\n\\nRatione eum quibusdam quis sapiente commodi. Amet eligendi eligendi sit ut ducimus. Sequi quo illo ut amet voluptatem. Ut nesciunt velit unde quia quis eos. Harum aliquam repellat nesciunt molestiae sequi dolor.\",\n        \"benefits\": \"Placeat qui ratione et et. Sed aut saepe reprehenderit doloremque. Quis rerum est voluptates sed ut nihil architecto. Accusamus quis autem rem quis qui. Et quo quia esse libero temporibus consequatur possimus.\",\n        \"is_active\": true,\n        \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n        \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n        \"expires_at\": null,\n        \"posted_at_human\": \"2 minutes ago\",\n        \"expires_in_days\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Related Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/jobs/{{job_id}}/related",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"{{job_id}}",
+								"related"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/jobs/{{job_id}}/related",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"jobs",
+										"{{job_id}}",
+										"related"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:42:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 5,\n            \"title\": \"Pharmacy Technician\",\n            \"company\": {\n                \"id\": 15,\n                \"name\": \"Braun PLC\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00aa44?text=corporis\",\n                \"industry\": \"atque\",\n                \"location\": \"Adamsville\"\n            },\n            \"salary\": {\n                \"min\": \"33212.00\",\n                \"max\": \"90644.00\",\n                \"formatted\": \"$33,212 - $90,644\"\n            },\n            \"category\": \"Sales\",\n            \"location\": \"North Beaulah\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"internship\",\n            \"description\": \"Quaerat architecto dolores eveniet sint. Nemo quia consequatur quod vero. Id quis quidem harum sed cumque cum. Sunt illo alias sunt soluta.\\n\\nAut aliquid ab dolores ducimus accusantium consequatur possimus. Esse illum suscipit sunt voluptas. Dolor voluptatibus maiores beatae ullam cum.\\n\\nVoluptatem voluptatem ut quisquam quasi omnis facilis. Voluptatem accusantium enim similique autem fugit reprehenderit. Quasi ipsum sit voluptas voluptates tenetur eum. Est provident in commodi autem.\",\n            \"requirements\": \"Odio consequatur explicabo consequuntur totam error dolorem. Ipsum ratione dignissimos a tempore. Et quia laudantium non optio non similique placeat.\\n\\nTemporibus iste expedita rerum eum illum et. Dolor mollitia hic ut a dicta voluptas provident culpa. Repellat quis illo nisi qui quo est sed.\",\n            \"responsibilities\": \"Quia voluptatem ut voluptatibus et unde quia quia omnis. Repellendus et sunt facere vitae culpa eius.\\n\\nOfficia consectetur ut sed enim ea. Enim et velit libero cumque. Officia accusantium quidem nobis aut cum.\",\n            \"benefits\": \"Earum et voluptatem ut animi at. Error et reprehenderit sapiente aliquam quo est. Sequi sint enim veniam deleniti qui architecto.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"3 minutes ago\",\n            \"expires_in_days\": null\n        },\n        {\n            \"id\": 17,\n            \"title\": \"School Social Worker\",\n            \"company\": {\n                \"id\": 27,\n                \"name\": \"Pfeffer, Herzog and Hammes\",\n                \"logo_path\": \"http://localhost:8000/storage/https://via.placeholder.com/640x480.png/00aa11?text=ut\",\n                \"industry\": \"dicta\",\n                \"location\": \"New Charlene\"\n            },\n            \"salary\": {\n                \"min\": \"42642.00\",\n                \"max\": \"74731.00\",\n                \"formatted\": \"$42,642 - $74,731\"\n            },\n            \"category\": \"Sales\",\n            \"location\": \"South Donnie\",\n            \"work_arrangement\": \"remote\",\n            \"job_type\": \"internship\",\n            \"description\": \"Suscipit harum enim nesciunt repudiandae eius nostrum voluptatem. Numquam sed nihil est voluptatem iure asperiores maiores. Corrupti natus cumque facilis ipsam molestias.\\n\\nConsequatur tempora recusandae quia beatae nostrum tenetur. Et dolore ea eius aut autem suscipit adipisci.\\n\\nIure nihil id non. Aliquam ipsa quidem placeat voluptatibus.\",\n            \"requirements\": \"Dignissimos explicabo sit voluptatem alias eaque. Asperiores sed est quibusdam. Aut neque sint nostrum nihil ut et qui. Est atque ad ad ex commodi aspernatur at. Voluptas accusamus ab error consequatur laboriosam.\\n\\nEt quae voluptatem at laboriosam minima. Error et ipsa est dolor reprehenderit. Incidunt eligendi quos qui repudiandae minima repellat est. Sed voluptatem et minima provident sed voluptatem.\",\n            \"responsibilities\": \"Dolor rerum sed debitis. Architecto reprehenderit non quae consequuntur aut et sed. Deleniti sint nemo accusamus quo. Fugit molestiae optio molestiae voluptatem.\\n\\nOdio voluptas eos sunt atque. Incidunt qui fugiat suscipit. Deleniti quo aliquid sed eaque.\",\n            \"benefits\": \"Ad voluptatem rerum odio mollitia minus consequuntur. Mollitia quia molestias quod est nemo omnis officiis. Eligendi adipisci nihil non facilis fugiat. Asperiores dolor accusantium non exercitationem. Quas autem laboriosam voluptatum repellat.\",\n            \"is_active\": true,\n            \"created_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"updated_at\": \"2025-02-21T08:39:43.000000Z\",\n            \"expires_at\": null,\n            \"posted_at_human\": \"3 minutes ago\",\n            \"expires_in_days\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Job Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/job-categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"job-categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/job-categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"job-categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 08:43:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"category\": \"Finance\",\n            \"job_count\": 7\n        },\n        {\n            \"category\": \"Marketing\",\n            \"job_count\": 5\n        },\n        {\n            \"category\": \"Sales\",\n            \"job_count\": 3\n        },\n        {\n            \"category\": \"Technology\",\n            \"job_count\": 3\n        },\n        {\n            \"category\": \"HR\",\n            \"job_count\": 3\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Protected Routes",
+			"item": [
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/profile",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/profile",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload CV",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cv",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/profile/upload-cv",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"profile",
+										"upload-cv"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Experiences",
+					"item": [
+						{
+							"name": "Get All Experiences",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/experiences",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"experiences"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Experience",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/experiences",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"experiences"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Education",
+					"item": [
+						{
+							"name": "Get All Education",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/education",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"education"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Education",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/education",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"education"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Portfolio",
+					"item": [
+						{
+							"name": "Get All Portfolio",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/portfolio",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"portfolio"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Portfolio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/portfolio",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"portfolio"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Job Applications",
+					"item": [
+						{
+							"name": "Get All Applications",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/applications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"applications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Application",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/applications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"applications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 09:22:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"email\": \"ilham@admin.com\",\n        \"username\": null,\n        \"role\": \"employer\",\n        \"is_verified\": false,\n        \"created_at\": \"2025-02-21T08:39:42.000000Z\",\n        \"updated_at\": \"2025-02-21T08:39:42.000000Z\",\n        \"profile\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "token",
+			"value": "token_login"
+		},
+		{
+			"key": "job_id",
+			"value": "1"
+		}
+	]
+}
